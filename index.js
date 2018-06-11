@@ -1,15 +1,15 @@
 var fs = require('fs');
-var path = require('path');
 var memwatch = require('memwatch-next');
 
 function readFile() {
-    fs.readFile(path.resolve('file-to-read.txt'), function (err, buffer) {
-        buffer = null;
+    fs.readFile('file-to-read.txt', function (err, content) {
+        // console.log("" + content);
     });
 }
 
 function readFileSync() {
-    var fileContent = fs.readFileSync(path.resolve('file-to-read.txt'));
+    var content = fs.readFileSync('file-to-read.txt');
+    // console.log("" + content);
 }
 
 memwatch.on('stats', function(stats) { 
@@ -17,7 +17,8 @@ memwatch.on('stats', function(stats) {
 });
 
 for(var i = 0; i < 1000000; i++) {
-    readFileSync();
+    readFile();
+    // readFileSync();
     if (i === 500000) {
         console.log("run gc");
         global.gc();
