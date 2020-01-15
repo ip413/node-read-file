@@ -1,5 +1,6 @@
 var fs = require('fs');
-var LOOP_LIMIT = 10e5;
+
+var LOOP_LIMIT = 10e3;
 var HALF_LOOP_LIMIT = LOOP_LIMIT/2;
 
 function readFile() {
@@ -28,10 +29,6 @@ function loop() {
         if (i === LOOP_LIMIT - 1) {
             global.gc();
             console.log("almost finished");
-            setTimeout(function () {
-                global.gc();
-                console.log("finished");
-            }, 12000);
 
             setInterval(function () {
                 global.gc();
@@ -42,6 +39,6 @@ function loop() {
     }
 }
 
+// nice to have timeout for catching initial memory size
 setTimeout(loop, 2000);
-
 global.gc();
