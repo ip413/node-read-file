@@ -34,7 +34,6 @@ function loop() {
                 global.gc();
                 console.log(new Date());
             }, 1000);
-
         }
     }
 }
