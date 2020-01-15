@@ -16,22 +16,32 @@ function readFileSync() {
     var content = fs.readFileSync('file-to-read.txt');
 }
 
-for(var i = 0; i < LOOP_LIMIT; i++) {
-    // readFile();
-    readFileSync();
-    if (i === HALF_LOOP_LIMIT) {
-        console.log("run gc");
-        global.gc();
-    }
-
-    if (i === LOOP_LIMIT - 1) {
-        global.gc();
-        console.log("almost finished");
-        setTimeout(function () {
+function loop() {
+    for (var i = 0; i < LOOP_LIMIT; i++) {
+        readFile();
+        // readFileSync();
+        if (i === HALF_LOOP_LIMIT) {
+            console.log("run gc");
             global.gc();
-            console.log("finished");
-        }, 12000);
+        }
+
+        if (i === LOOP_LIMIT - 1) {
+            global.gc();
+            console.log("almost finished");
+            setTimeout(function () {
+                global.gc();
+                console.log("finished");
+            }, 12000);
+
+            setInterval(function () {
+                global.gc();
+                console.log(new Date());
+            }, 1000);
+
+        }
     }
 }
+
+setTimeout(loop, 2000);
 
 global.gc();

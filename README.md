@@ -17,3 +17,7 @@ or
 * Results for node 6 and 12:
 
 ![](https://github.com/ip413/node-read-file/blob/master/docs/data.png)
+
+* Results different amount of reads, node 6.17.1:
+
+![](https://github.com/ip413/node-read-file/blob/master/docs/read.png)
