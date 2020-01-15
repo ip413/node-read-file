@@ -13,6 +13,7 @@ or
 
 * Test has no npm dependencies.
 
+* Switch between sync, async, number of read directly in code.
 
 * Results for node 6 and 12:
 
