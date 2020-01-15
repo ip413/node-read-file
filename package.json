@@ -1,7 +1,7 @@
 {
-  "name": "read-file",
+  "name": "node-read-file",
   "version": "1.0.0",
-  "description": "",
+  "description": "memory test for node read file",
   "main": "index.js",
   "scripts": {
     "start": "node --expose-gc index.js",
@@ -10,6 +10,5 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "memwatch-next": "^0.3.0"
   }
 }
